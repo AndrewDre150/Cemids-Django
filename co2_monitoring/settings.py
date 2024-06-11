@@ -102,11 +102,26 @@ WSGI_APPLICATION = 'co2_monitoring.wsgi.application'
 # }
 
 # Replace the SQLite DATABASES configuration with PostgreSQL:
-DATABASES = {
-    'default': dj_database_url.parse(os.environ.get("DATABASE_URL")
+# DATABASES = {
+#     'default': dj_database_url.parse(os.environ.get("DATABASE_URL")
        
-    )
+#     )
+# }
+# Assuming you have DATABASE_URL environment variable set
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'cemidsdb',
+        'USER': 'cemidsdb_user',
+        'PASSWORD': 'FrGDh8s3xjCoLwm5bLStTvnwqYQqxd4u',
+        'HOST': 'dpg-cpk372n109ks73ev9r9g-a',
+        'PORT': '5432',
+    }
 }
+
+# Override with environment variable if set (useful for local development or different environments)
+db_from_env = dj_database_url.config(conn_max_age=600)
+DATABASES['default'].update(db_from_env)
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
