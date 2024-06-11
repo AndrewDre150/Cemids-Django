@@ -1,1 +1,1 @@
-web: gunicorn:co2_monitoring.wsgi --log-file -
+web: gunicorn co2_monitoring.wsgi --log-file -
