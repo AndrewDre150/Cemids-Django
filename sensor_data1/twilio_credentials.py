@@ -1,10 +1,4 @@
-# account_sid = 'ACcc386e6626e6a636acc4e1c939d04949'
-# auth_token = 'a5e199ba227d53f7da5bf7beb118a580'
-# twilio_from_number = '+12097200667'
-
-
 # sensor_data1/twilio_credentials.py
-
 import os
 from dotenv import load_dotenv
 
